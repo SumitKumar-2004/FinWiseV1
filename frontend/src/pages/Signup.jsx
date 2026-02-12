@@ -19,51 +19,37 @@ export default function Signup() {
 
     // Validations
     if (!form.name.trim()) {
-      toast.error("First name is required", {
-        position: "top-right",
-        autoClose: 3000,
-      });
+      toast.error("First name is required");
       return;
     }
     if (!form.email.trim()) {
-      toast.error("Email is required", {
-        position: "top-right",
-        autoClose: 3000,
-      });
+      toast.error("Email is required");
       return;
     }
     if (!form.password.trim()) {
-      toast.error("Password is required", {
-        position: "top-right",
-        autoClose: 3000,
-      });
+      toast.error("Password is required");
       return;
     }
 
     setIsLoading(true);
+
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/v2/auth/signup",
-        form
+        `${import.meta.env.VITE_API_URL}/auth/signup`,
+        form,
       );
 
-      // Show success toast
-      toast.success(`Welcome ${res.data.data.name}`, {
-        position: "top-right",
-        autoClose: 3000,
-      });
+      toast.success(`Welcome ${res.data.data.name}`);
 
-      // Redirect after 3 seconds to login
+      // redirect to login
       setTimeout(() => {
         window.location.href = "/login";
-      }, 3000);
+      }, 2000);
     } catch (err) {
       console.error(err.response?.data || err.message);
-      setError(err.response?.data?.message || "Something went wrong");
-      toast.error(err.response?.data?.message || "Signup failed", {
-        position: "top-right",
-        autoClose: 3000,
-      });
+
+      toast.error(err.response?.data?.message || "Signup failed");
+      setError(err.response?.data?.message || "Signup failed");
     } finally {
       setIsLoading(false);
     }
@@ -81,27 +67,30 @@ export default function Signup() {
             type="text"
             name="name"
             placeholder="Full Name"
-            className="w-full mb-4 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full mb-4 p-3 border rounded-lg"
             onChange={handleChange}
           />
+
           <input
             type="email"
             name="email"
             placeholder="Email"
-            className="w-full mb-4 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full mb-4 p-3 border rounded-lg"
             onChange={handleChange}
           />
+
           <div className="relative mb-4">
             <input
               type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Password"
-              className="w-full p-3 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 pr-10 border rounded-lg"
               onChange={handleChange}
             />
+
             <button
               type="button"
-              className="absolute inset-y-0 right-0 pr-3 flex items-center"
+              className="absolute right-3 top-3"
               onClick={() => setShowPassword(!showPassword)}
             >
               {showPassword ? (
@@ -114,9 +103,10 @@ export default function Signup() {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-3 rounded-lg text-lg font-medium hover:bg-blue-700 transition cursor-pointer"
+            disabled={isLoading}
+            className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700"
           >
-            Sign Up
+            {isLoading ? "Creating..." : "Sign Up"}
           </button>
         </form>
 
@@ -128,7 +118,6 @@ export default function Signup() {
         </p>
       </div>
 
-      {/* Toast Container */}
       <ToastContainer />
     </div>
   );
