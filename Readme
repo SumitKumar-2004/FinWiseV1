@@ -1,0 +1,230 @@
+
+
+💰 FinWise – Smart Finance Management App
+
+Live Demo: 👉 https://finwisev1.netlify.app
+
+FinWise is a Full Stack Expense Tracker Web Application that helps users track daily expenses, analyze spending patterns, and manage personal finances efficiently through a clean and modern dashboard.
+
+
+---
+
+🚀 Features
+
+🔐 User Authentication (Register / Login)
+
+➕ Add, Edit, Delete Expenses
+
+📋 View All Expenses
+
+📊 Weekly Spending Analytics
+
+💹 Category-wise Breakdown
+
+🎨 Clean & Responsive UI
+
+☁️ Cloud-based Database
+
+
+
+---
+
+🛠️ Tech Stack
+
+Frontend
+
+React.js
+
+Tailwind CSS
+
+Axios
+
+Chart.js / Recharts
+
+
+Backend
+
+Node.js
+
+Express.js
+
+MongoDB
+
+JWT Authentication
+
+
+Deployment
+
+Frontend → Netlify
+
+Backend → Render / Railway
+
+Database → MongoDB Atlas
+
+
+
+---
+
+🧱 System Architecture
+
+User
+ │
+ │  HTTP Requests (REST API)
+ ▼
+Frontend (React)
+ │
+ │ Axios
+ ▼
+Backend (Node + Express)
+ │
+ │ Mongoose
+ ▼
+MongoDB Atlas
+
+Architecture Explanation
+
+React handles UI & user interactions
+
+Express API processes requests
+
+MongoDB stores users and expenses
+
+JWT secures protected routes
+
+
+
+---
+
+📂 Folder Structure
+
+Root Directory
+
+finwise/
+│
+├── client/                # Frontend (React)
+├── server/                # Backend (Node + Express)
+├── README.md
+└── package.json
+
+
+---
+
+Frontend (client)
+
+client/
+│
+├── public/
+│
+├── src/
+│   ├── components/
+│   │   ├── Navbar.jsx
+│   │   ├── ExpenseForm.jsx
+│   │   ├── ExpenseList.jsx
+│   │   └── Charts.jsx
+│   │
+│   ├── pages/
+│   │   ├── Login.jsx
+│   │   ├── Register.jsx
+│   │   └── Dashboard.jsx
+│   │
+│   ├── services/
+│   │   └── api.js
+│   │
+│   ├── App.jsx
+│   └── main.jsx
+│
+└── package.json
+
+
+---
+
+Backend (server)
+
+server/
+│
+├── config/
+│   └── db.js
+│
+├── models/
+│   ├── User.js
+│   └── Expense.js
+│
+├── routes/
+│   ├── authRoutes.js
+│   └── expenseRoutes.js
+│
+├── controllers/
+│   ├── authController.js
+│   └── expenseController.js
+│
+├── middleware/
+│   └── authMiddleware.js
+│
+├── server.js
+└── package.json
+
+
+---
+
+⚙️ Installation & Setup
+
+Clone Repository
+
+git clone https://github.com/your-username/finwise.git
+cd finwise
+
+Backend Setup
+
+cd server
+npm install
+npm run dev
+
+Create .env file:
+
+PORT=5000
+MONGO_URI=your_mongodb_url
+JWT_SECRET=your_secret_key
+
+Frontend Setup
+
+cd client
+npm install
+npm run dev
+
+
+---
+
+🔑 Environment Variables
+
+Variable	Description
+
+MONGO_URI	MongoDB connection string
+JWT_SECRET	Secret key for authentication
+PORT	Backend port
+
+
+
+---
+
+🌟 Future Improvements
+
+Monthly & Yearly Analytics
+
+Export Reports (PDF / Excel)
+
+Dark Mode
+
+Budget Limit Alerts
+
+Google Authentication
+
+---
+
+👨‍💻 Author
+
+Sumit Kumar
+Full Stack Developer (MERN)
+
+
+---
+
