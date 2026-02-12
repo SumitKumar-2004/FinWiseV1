@@ -1,3 +1,0 @@
-- [x] Add userId field to Expense schema in expenseModel.js
-- [x] Update expenseController.js to filter expenses by userId and include userId on creation
-- [x] Test the changes to ensure user-specific data
