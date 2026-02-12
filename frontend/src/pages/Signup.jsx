@@ -48,7 +48,7 @@ export default function Signup() {
       );
 
       // Show success toast
-      toast.success(`Signup successful! Welcome ${res.data.data.name}`, {
+      toast.success(`Welcome ${res.data.data.name}`, {
         position: "top-right",
         autoClose: 3000,
       });
